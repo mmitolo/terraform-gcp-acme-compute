@@ -1,17 +1,17 @@
 locals {
-  service_account = {
-    email  = data.google_service_account.acme_tf.email,
-    scopes = ["cloud-platform"]
-  }
+  #service_account = {
+  #  email  = data.google_service_account.acme_tf.email,
+  #  scopes = ["cloud-platform"]
+  #}
   access_config = [{
     nat_ip       = resource.google_compute_address.frontend.address
     network_tier = "PREMIUM"
   }]
   instances = {
     frontend = {
-      subnetwork           = module.acme_vpc.subnets["us-central1/pub-subnet"].id
-      name_prefix          = "${var.default_labels.owner}-vm-front"
-      machine_type         = "e2-standard-4"
+      subnetwork   = module.acme_vpc.subnets["us-central1/pub-subnet"].id
+      name_prefix  = "${var.default_labels.owner}-vm-front"
+      machine_type = "e2-standard-4"
       #source_image_project = "acme-corp-gcp"
       #source_image         = data.hcp_packer_artifact.gcp_ubuntu_acme_frontend_img.external_identifier
     }
@@ -23,12 +23,12 @@ module "instance_template" {
   source  = "terraform-google-modules/vm/google//modules/instance_template"
   version = "~> 11.0"
 
-  name_prefix     = "${var.default_labels.owner}-instance-tmp"
-  region          = var.gcp_region
-  project_id      = var.project_id
-  subnetwork      = module.acme_vpc.subnets["us-central1/pub-subnet"].id
-  service_account = local.service_account
-  machine_type    = "e2-standard-4"
+  name_prefix = "${var.default_labels.owner}-instance-tmp"
+  region      = var.gcp_region
+  project_id  = var.project_id
+  subnetwork  = module.acme_vpc.subnets["us-central1/pub-subnet"].id
+  #service_account = local.service_account
+  machine_type = "e2-standard-4"
   #source_image_project = "acme-corp-gcp"
   #source_image    = data.hcp_packer_artifact.gcp_ubuntu_acme_frontend_img.external_identifier
   auto_delete = true

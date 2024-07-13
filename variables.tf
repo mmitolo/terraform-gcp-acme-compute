@@ -18,7 +18,7 @@ variable "default_labels" {
   description = "Project-scoped labels."
   default = {
     environment = "lab"
-    owner       = "ACME"
+    owner       = "acme"
     version     = 0
   }
 }
