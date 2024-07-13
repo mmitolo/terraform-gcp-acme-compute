@@ -50,6 +50,7 @@ variable "instance_labels" {
 variable "network_instance_tags" {
   type        = list(string)
   description = "network-instance-scoped tags."
+  default     = ["ACME", "lab"]
 }
 
 variable "public_subnets" {
