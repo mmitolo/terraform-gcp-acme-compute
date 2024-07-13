@@ -1,0 +1,39 @@
+gcp_region    = ""
+project_id    = ""
+num_instances = 1
+
+default_labels = {
+  environment = ""
+  version     = 1
+  owner       = ""
+}
+
+instance_labels = {
+  arch     = ""
+  version  = 1
+  service  = ""
+  tier     = ""
+  protocol = ""
+}
+
+network_instance_tags = []
+
+hcp_bucket_acme_images = ""
+
+hcp_channel = ""
+
+cidr = ""
+
+private_subnets = []
+public_subnets  = []
+
+zones = []
+
+vpc_options = {
+  mtu               = 1460
+  routing_mode      = ""
+  delete_igw_routes = true
+}
+
+client_id     = ""
+client_secret = ""
