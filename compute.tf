@@ -1,6 +1,6 @@
 locals {
   service_account = {
-    #  email  = data.google_service_account.acme_tf.email,
+    email  = data.google_service_account.acme_tf.email,
     scopes = ["cloud-platform"]
   }
   access_config = [{
