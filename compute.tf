@@ -18,7 +18,7 @@ locals {
   }
 }
 
-#  gcloud compute ssh --zone "us-central1-a" "acme-frontend-001" --tunnel-through-iap --project "acme-corp-gcp"
+#  gcloud compute ssh --zone "us-central1-a" "acme-frontend-001" --tunnel-through-iap --project "acme-corp-tfc-test"
 module "instance_template" {
   source  = "terraform-google-modules/vm/google//modules/instance_template"
   version = "~> 11.0"
