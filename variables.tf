@@ -94,7 +94,7 @@ variable "cidr" {
 variable "hcp_bucket_acme_images" {
   type        = string
   description = "HCP Packer bucket name for hashicups image"
-  default     = "acme-corp-image-mgmt"
+  default     = "base-ubuntu-amd64-img"
 }
 
 variable "hcp_channel" {
