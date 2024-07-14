@@ -1,9 +1,9 @@
 terraform {
   cloud {
-    organization = "acme-corp-org"
+    organization = "acme-corp-hcp"
 
     workspaces {
-      name = "acme-corp-tf-gcp"
+      name = "terraform-gcp-acme-compute"
     }
   }
   required_providers {
@@ -25,4 +25,6 @@ provider "google" {
   default_labels = var.default_labels
 }
 
-provider "hcp" {}
+provider "hcp" {
+  project_id = "base-ubuntu-amd64-img"
+}
