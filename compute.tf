@@ -12,7 +12,7 @@ locals {
       subnetwork           = module.acme_vpc.subnets["us-central1/pub-subnet"].id
       name_prefix          = "${var.default_labels.owner}-vm-demo"
       machine_type         = "e2-standard-4"
-      source_image_project = "acme-corp-tfc-test"
+      source_image_project = "hc-f25ec0d44b3145959f3d781b5e7"
       source_image         = data.hcp_packer_artifact.gcp_ubuntu_acme_frontend_img.external_identifier
     }
   }
