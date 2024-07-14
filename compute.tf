@@ -23,14 +23,14 @@ module "instance_template" {
   source  = "terraform-google-modules/vm/google//modules/instance_template"
   version = "~> 11.0"
 
-  name_prefix          = local.frontend.name_prefix
+  name_prefix          = local.instances.frontend.name_prefix
   region               = var.gcp_region
   project_id           = var.project_id
-  subnetwork           = local.frontend.subnetwork
+  subnetwork           = local.instances.frontend.subnetwork
   service_account      = local.service_account
-  machine_type         = local.frontend.machine_type
-  source_image_project = local.frontend.source_image_project
-  source_image         = local.frontend.source_image
+  machine_type         = local.instances.frontend.machine_type
+  source_image_project = local.instances.frontend.source_image_project
+  source_image         = local.instances.frontend.source_image
   auto_delete          = true
   labels               = var.instance_labels
   tags                 = var.network_instance_tags
@@ -42,7 +42,7 @@ module "compute_instance" {
   version = "~> 11.0"
 
   region              = var.gcp_region
-  subnetwork          = local.frontend.subnetwork
+  subnetwork          = local.instances.frontend.subnetwork
   num_instances       = var.num_instances
   hostname            = "${var.default_labels.owner}-frontend"
   instance_template   = module.instance_template.self_link

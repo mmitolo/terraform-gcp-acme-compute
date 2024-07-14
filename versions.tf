@@ -26,5 +26,5 @@ provider "google" {
 }
 
 provider "hcp" {
-  project_id = "base-ubuntu-amd64-img"
+  project_id = "53ee78db-22e8-47ea-b253-992c709253ca"
 }
