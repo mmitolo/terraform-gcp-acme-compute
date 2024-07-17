@@ -8,4 +8,5 @@ output "gcp_ubuntu_acme_frontend_img" {
 
 output "gcp_instance_details" {
   value = module.compute_instance.instances_details
+  sensitive = true
 }
